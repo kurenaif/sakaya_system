@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="OrderTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-07-21T18:19:37" hostname="DESKTOP-TUTCSGI" time="0.017">
+  <properties/>
+  <testcase name="注文を行う" classname="OrderTest" time="0.016"/>
+  <testcase name="異常な注文を行う(酒の注文数が0以下)" classname="OrderTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

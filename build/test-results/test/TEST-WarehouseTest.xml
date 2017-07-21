@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="WarehouseTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2017-07-21T18:19:37" hostname="DESKTOP-TUTCSGI" time="0.012">
+  <properties/>
+  <testcase name="在庫の生成を行う" classname="WarehouseTest" time="0.001"/>
+  <testcase name="在庫の保存，読み込みを行う" classname="WarehouseTest" time="0.006"/>
+  <testcase name="在庫の追加を行う" classname="WarehouseTest" time="0.0"/>
+  <testcase name="在庫の減算を行う" classname="WarehouseTest" time="0.001"/>
+  <testcase name="0以下の数字をaddするとInputException" classname="WarehouseTest" time="0.001"/>
+  <testcase name="0以下の数字をsubstするとInputException" classname="WarehouseTest" time="0.001"/>
+  <testcase name="在庫が負の数になるような数を入力するとInputException" classname="WarehouseTest" time="0.001"/>
+  <system-out><![CDATA[save Warehouse to warehouse.csv ...
+warehouse saved.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
