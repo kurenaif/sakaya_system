@@ -1,6 +1,7 @@
 /**
  * entity 注文に関するクラス
  * Created by kurenaif on 2017/07/21.
+ * Changed by matsuzaki in 2017/07/22.
  */
 public class Order {
     private Warehouse warehouse;
@@ -11,9 +12,18 @@ public class Order {
         this.voucherList = voucherList;
     }
 
-    public void order(String customerName, String brand, int number ) throws InputException, DataBaseException{
-        //voucherListの方が条件が厳しいため必ずこちらを先に実行する
-        voucherList.add(customerName, brand, number);
-        warehouse.add(new Stock(brand, number));
+    
+    /**
+     * changed by matsuzaki on 2017/07/22.
+     * @param customerName
+     * @param brand
+     * @param number
+     * @return 注文番号
+     * @throws InputException
+     * @throws DataBaseException
+     */
+    public int order(String customerName, String brand, int number ) throws InputException, DataBaseException{
+    	warehouse.subst(new Stock(brand, number));
+    	return voucherList.add(customerName, brand, number);
     }
 }
