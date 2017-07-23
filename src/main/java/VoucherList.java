@@ -25,8 +25,10 @@ public class VoucherList {
 
     /**
      * 出荷伝票の追加を行う
+     * changed by matsuzaki on 2017/07/22.
+     * @return 注文番号
      */
-    public void add(String customerName, String brand, int number) throws InputException, DataBaseException{
+    public int add(String customerName, String brand, int number) throws InputException, DataBaseException{
         //登録されている注文番号の中の最大の数([1-999999])
         int maxNum = 0;
         for (Voucher aVoucherList : voucherList) {
@@ -34,6 +36,7 @@ public class VoucherList {
         }
         if(maxNum >= 999999) throw new DataBaseException("ordered number rather than 999999");
         voucherList.add(new Voucher(maxNum+1, customerName, brand, number));
+        return maxNum+1;
     }
 
     /**
