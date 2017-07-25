@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="VoucherTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-07-21T18:19:37" hostname="DESKTOP-TUTCSGI" time="0.001">
+<testsuite name="VoucherTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-07-25T15:24:18" hostname="DESKTOP-TUTCSGI" time="0.003">
   <properties/>
-  <testcase name="伝票を作成する" classname="VoucherTest" time="0.0"/>
-  <testcase name="伝票を作成する(numberが負の時に例外)" classname="VoucherTest" time="0.001"/>
+  <testcase name="伝票を作成する" classname="VoucherTest" time="0.001"/>
+  <testcase name="伝票を作成する(numberが負の時に例外)" classname="VoucherTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -51,10 +51,7 @@ class WarehouseTest extends Specification {
 	def "0以下の数字をaddするとInputException"(){
 		when:
 		def wareHouse = new Warehouse()
-		wareHouse.add(new Stock("鬼殺し", 1))
-		def stock = new Stock("鬼殺し", 2)
-		stock.substNumber(2)
-		wareHouse.add(stock)
+		wareHouse.add(new Stock("鬼殺し", 0))
 
 		then:
 		thrown(InputException)
@@ -63,10 +60,7 @@ class WarehouseTest extends Specification {
 	def "0以下の数字をsubstするとInputException"(){
 		when:
 		def wareHouse = new Warehouse()
-		wareHouse.add(new Stock("鬼殺し", 1))
-		def stock = new Stock("鬼殺し", 2)
-		stock.substNumber(2)
-		wareHouse.subst(stock)
+		wareHouse.subst(new Stock("鬼殺し", 0))
 
 		then:
 		thrown(InputException)

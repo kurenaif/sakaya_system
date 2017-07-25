@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StockTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2017-07-21T18:19:37" hostname="DESKTOP-TUTCSGI" time="0.003">
+<testsuite name="StockTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2017-07-25T15:24:18" hostname="DESKTOP-TUTCSGI" time="0.005">
   <properties/>
-  <testcase name="本数が0よりおおきいの値が入力されればそのまま帰す" classname="StockTest" time="0.0"/>
+  <testcase name="本数が0よりおおきいの値が入力されればそのまま帰す" classname="StockTest" time="0.001"/>
   <testcase name="本数が0以下の値が入力されれば例外" classname="StockTest" time="0.001"/>
   <testcase name="ストックの追加を行う" classname="StockTest" time="0.001"/>
-  <testcase name="ストックに追加する数が0以下であれば例外" classname="StockTest" time="0.0"/>
-  <testcase name="ストックの減算を行う(0になってもOK)" classname="StockTest" time="0.001"/>
+  <testcase name="ストックに追加する数が0以下であれば例外" classname="StockTest" time="0.001"/>
+  <testcase name="ストックの減算を行う(0になってもOK)" classname="StockTest" time="0.0"/>
   <testcase name="ストックに減算する数が0以下であれば例外" classname="StockTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -8,28 +8,14 @@ class OrderTest extends Specification {
         Warehouse wh = Warehouse.getInstance()
         VoucherList voul = VoucherList.getInstance()
         Order order = new Order(Warehouse.getInstance(), VoucherList.getInstance())
-        order.order("勝浦巧", "鬼殺し", 1)
-        order.order("藤原巧", "xyz", 2)
-        ArrayList<Stock> sl = wh.GetStockList()
-        Stock s1 = sl.get(0)
-        Stock s2 = sl.get(1)
-        ArrayList<Voucher> vl = voul.getVoucherList()
-        Voucher v1 = vl.get(0)
-        Voucher v2 = vl.get(1)
+		wh.add(new Stock("鬼ごろし", 1))
+		order.order("勝浦巧", "鬼ごろし", 1)
 
         expect:
-        s1.getNumber() == 1
-        s1.getBrand() == "鬼殺し"
-        v1.getNumber() == 1
-        v1.getBrand() == "鬼殺し"
-        v1.getCustomerName() == "勝浦巧"
-        v1.getOrderNumber() == 1
-        s2.getNumber() == 2
-        s2.getBrand() == "xyz"
-        v2.getNumber() == 2
-        v2.getBrand() == "xyz"
-        v2.getCustomerName() == "藤原巧"
-        v2.getOrderNumber() == 2
+		wh.getStockNumber("鬼ごろし") == 0
+		voul.getVoucherList()[0].getCustomerName() == "勝浦巧"
+		voul.getVoucherList()[0].getBrand() == "鬼ごろし" 
+		voul.getVoucherList()[0].getNumber() == 1
     }
 
     @Unroll
@@ -41,4 +27,26 @@ class OrderTest extends Specification {
         then:
         thrown(InputException)
     }
+	
+	@Unroll
+	def "異常な注文を行う(在庫切れ)"(){
+		when:
+		Warehouse wh = Warehouse.getInstance()
+		Order order = new Order(Warehouse.getInstance(), VoucherList.getInstance())
+		wh.add(new Stock("鬼殺し", 1))
+		order.order("勝浦巧", "鬼殺し", 2)
+		then:
+		thrown(InputException)
+	}
+
+	@Unroll
+	def "異常な注文を行う(在庫が存在しない)"(){
+		when:
+		Warehouse wh = Warehouse.getInstance()
+		Order order = new Order(Warehouse.getInstance(), VoucherList.getInstance())
+		wh.add(new Stock("鬼殺し", 1))
+		order.order("勝浦巧", "おにごろし", 2)
+		then:
+		thrown(InputException)
+	}
 }
