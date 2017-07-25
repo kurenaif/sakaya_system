@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args)
     {
+
     	User user;
     	Warehouse warehouse = Warehouse.getInstance();
     	VoucherList voucherlist = VoucherList.getInstance();
