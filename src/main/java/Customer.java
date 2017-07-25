@@ -3,9 +3,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Customer {
-	Warehouse warehouse = Warehouse.getInstance();
-	VoucherList voucherlist = VoucherList.getInstance();
-	Order order = new Order(warehouse, voucherlist);   	
+	Order order;
+	
+	public Customer(Warehouse warehouse, VoucherList voucherlist){
+    	order = new Order(warehouse, voucherlist);
+	}
 	
 	/**
 	 * 注文・出荷をするメソッド
@@ -16,6 +18,7 @@ public class Customer {
     	String numbuf, selectbuf;
     	int number, select, orderNum;
     	String name, brand;
+
    
     	System.out.println("注文情報を入力してください．");
         System.out.print("あなたの名前：");
@@ -76,7 +79,7 @@ public class Customer {
         System.out.println("-------------------------------------------------");
   
         try {
-			if(warehouse.getStockNumber(brand) == 0){//在庫が0の場合
+			if(Warehouse.getInstance().getStockNumber(brand) == 0){//在庫が0の場合
 				System.out.println("大変申し訳ありませんが，倉庫内に在庫がございませんでした．");
 				System.out.println("そのため出荷できませんでした．");
 				System.out.println("-------------------------------------------------");

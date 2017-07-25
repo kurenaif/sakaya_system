@@ -7,12 +7,11 @@ public class Order {
     private Warehouse warehouse;
     private VoucherList voucherList;
 
-    public Order(Warehouse warehouse, VoucherList voucherList) {
+	public Order(Warehouse warehouse, VoucherList voucherList) {
         this.warehouse = warehouse;
         this.voucherList = voucherList;
     }
 
-    
     /**
      * changed by matsuzaki on 2017/07/22.
      * @param customerName
