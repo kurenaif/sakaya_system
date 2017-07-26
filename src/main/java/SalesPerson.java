@@ -16,7 +16,6 @@ public class SalesPerson {
         BufferedReader br = new BufferedReader(isr);
         int select;
 
-        System.out.println("------------------------------------------------------------");
         System.out.println("どちらの操作を行いますか？");
         System.out.println("1. 在庫を表示する");
         System.out.println("2. 出荷実績を表示する");
@@ -31,19 +30,19 @@ public class SalesPerson {
                     shipmentPerform.shipment();
                     break;
                 } else {
-                    System.out.println("------------------------------------------------------------");
+                	System.out.println("-------------------------------------------------");
                     System.out.println("正しい入力が行われませんでした．");
                     System.out.println("もう一度入力をお願いします．");
-                    System.out.println("------------------------------------------------------------");
+                    System.out.println("-------------------------------------------------");
                 }
             } catch (IOException e) {
-                System.out.println("------------------------------------------------------------");
+            	System.out.println("-------------------------------------------------");
                 System.out.println("正しい入力が行われませんでした．");
                 System.out.println("もう一度入力をお願いします．");
-                System.out.println("------------------------------------------------------------");
+                System.out.println("-------------------------------------------------");
             }
         }
 
-        System.out.println("------------------------------------------------------------");
+        System.out.println("-------------------------------------------------");
     }
 }

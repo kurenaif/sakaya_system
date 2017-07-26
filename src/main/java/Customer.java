@@ -20,14 +20,16 @@ public class Customer {
     	String name, brand;
 
    
-    	System.out.println("注文情報を入力してください．");
+    	System.out.println("酒の注文を行います.");
+    	System.out.println("あなたの名前と注文する酒の情報を入力してください.");
         System.out.print("あなたの名前：");
         while(true){
 	        try{
 	        	name = br.readLine(); 
 	        	break;
 	        } catch(IOException e){
-	        	System.out.println("入力が規定外です．正しい入力をしてください．");
+	        	System.out.println("正しい入力が行われませんでした.");
+        		System.out.println("もう一度入力をお願いします.");
 	        }
         }
         
@@ -48,7 +50,8 @@ public class Customer {
 	        	number = Integer.parseInt(numbuf);
 	        	break;
 	        } catch(IOException | NumberFormatException e){
-	        	System.out.println("入力が規定外です．正しい入力をしてください．");
+	        	System.out.println("正しい入力が行われませんでした.");
+        		System.out.println("もう一度入力をお願いします.");
 	        	System.out.print("本数：");
 	        }
         }
@@ -77,16 +80,11 @@ public class Customer {
         	return;
        	}     
         System.out.println("-------------------------------------------------");
-  
+        System.out.println("注文を受け付けました．");
+        
         try {
-			if(Warehouse.getInstance().getStockNumber(brand) == 0){//在庫が0の場合
-				System.out.println("大変申し訳ありませんが，倉庫内に在庫がございませんでした．");
-				System.out.println("そのため出荷できませんでした．");
-				System.out.println("-------------------------------------------------");
-				return;
-			}
 			orderNum = order.order(name, brand, number); //在庫がある場合
-		} catch(InputException e){//在庫に銘柄が存在しない場合
+		} catch(InputException e){//在庫に銘柄が存在しない場合，在庫が0の場合
         	System.out.println("大変申し訳ありませんが，倉庫内に在庫がございませんでした．");
     		System.out.println("そのため出荷できませんでした．");
     		System.out.println("-------------------------------------------------");
