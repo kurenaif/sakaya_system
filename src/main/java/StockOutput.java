@@ -18,7 +18,7 @@ public class StockOutput {
     public void printStock(){
         ArrayList<Stock> stock = warehouse.GetStockList();
 
-        System.out.println("------------------------------------------------------------");
+        System.out.println("-------------------------------------------------");
         System.out.println("在庫を表示します");
         System.out.println("-----------------------------");
         System.out.println("酒の銘柄    本数");
@@ -26,7 +26,6 @@ public class StockOutput {
         for (int i=0;i < stock.size();i++){
             System.out.println(stock.get(i).getBrand()+"\t"+stock.get(i).getNumber());
         }
-        System.out.println("-----------------------------");
-        System.out.println("------------------------------------------------------------");
+        System.out.println("-------------------------------------------------");
     }
 }

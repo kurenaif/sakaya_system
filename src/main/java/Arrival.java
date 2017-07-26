@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /**
  * entity 入荷に関するクラス
  * Created by kurenaif on 2017/07/21.
@@ -21,5 +23,10 @@ public class Arrival {
      */
     void arrive(String brand, int number) throws InputException{
         warehouse.add(new Stock(brand,  number));
+    	try {
+			warehouse.saveFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     }
 }

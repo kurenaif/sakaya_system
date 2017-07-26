@@ -30,19 +30,15 @@ public class SalesPerson {
                     shipmentPerform.shipment();
                     break;
                 } else {
-                	System.out.println("-------------------------------------------------");
                     System.out.println("正しい入力が行われませんでした．");
                     System.out.println("もう一度入力をお願いします．");
                     System.out.println("-------------------------------------------------");
                 }
             } catch (IOException e) {
-            	System.out.println("-------------------------------------------------");
                 System.out.println("正しい入力が行われませんでした．");
                 System.out.println("もう一度入力をお願いします．");
                 System.out.println("-------------------------------------------------");
             }
         }
-
-        System.out.println("-------------------------------------------------");
     }
 }

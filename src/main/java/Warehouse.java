@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
  * Created by kurenaif on 2017/07/21.
  */
 
-public class Warehouse implements Closeable{
+public class Warehouse implements Closeable {
     private ArrayList<Stock> stockList;
     private static Warehouse warehouse = new Warehouse();
 
@@ -79,11 +79,9 @@ public class Warehouse implements Closeable{
     public void saveFile() throws IOException {
         FileWriter fw = new FileWriter("./warehouse.csv");
         PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
-        System.out.println("save Warehouse to warehouse.csv ...");
         for (Stock s : stockList){
-            pw.println(s.getBrand()+","+s.getNumber());
+        	if(s.getNumber() != 0) pw.println(s.getBrand()+","+s.getNumber());
         }
-        System.out.println("warehouse saved.");
         pw.close();
     }
 
@@ -94,17 +92,24 @@ public class Warehouse implements Closeable{
      */
     public void loadFile() throws IOException, InputException, DataBaseException {
         if(!stockList.isEmpty()) throw new DataBaseException("Stock List is not empty");
-
-        FileReader fr = new FileReader("./warehouse.csv");
+        
+        FileReader fr;
+        try{
+        	fr = new FileReader("./warehouse.csv");
+        } catch (FileNotFoundException e){
+        	return;
+        }
         BufferedReader br = new BufferedReader(new BufferedReader(fr));
 
         String line;
         StringTokenizer token;
         while((line = br.readLine()) != null){
             token = new StringTokenizer(line, ",");
-
-            Stock s = new Stock(token.nextToken(), Integer.parseInt(token.nextToken()));
-            stockList.add(s);
+            try{
+            	Stock s = new Stock(token.nextToken(), Integer.parseInt(token.nextToken()));
+            	stockList.add(s);
+            } catch (InputException e){
+            }
         }
         br.close();
     }
@@ -115,7 +120,7 @@ public class Warehouse implements Closeable{
     public void clear(){
         stockList.clear();
     }
-
+    
     /**
      * デストラクタでsaveする
      * @throws IOException ファイルを保存する際に発生する例外

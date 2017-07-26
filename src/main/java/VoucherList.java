@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
  * entity 複数の伝票を管理するクラス
  * Created by kurenaif on 2017/07/21.
  */
-public class VoucherList {
+public class VoucherList implements Closeable{
     private ArrayList<Voucher> voucherList;
     private static VoucherList instanceVoucherList = new VoucherList();
 
@@ -61,7 +61,12 @@ public class VoucherList {
     public void loadFile() throws IOException, InputException, DataBaseException {
         if(!voucherList.isEmpty()) throw new DataBaseException("Stock List is not empty");
 
-        FileReader fr = new FileReader("./voucher_list.csv");
+        FileReader fr;
+        try{
+        fr = new FileReader("./voucher_list.csv");
+        } catch (FileNotFoundException e) {
+        	return;
+        }
         BufferedReader br = new BufferedReader(new BufferedReader(fr));
 
         String line;
@@ -84,5 +89,11 @@ public class VoucherList {
         voucherList.clear();
     }
 
-
+    /**
+     * デストラクタでsaveする
+     * @throws IOException ファイルを保存する際に発生する例外
+     */
+    public void close() throws IOException {
+        saveFile();
+    }
 }

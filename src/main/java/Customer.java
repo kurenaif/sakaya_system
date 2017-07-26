@@ -101,6 +101,5 @@ public class Customer {
 	System.out.println("あなたの名前:" + name);
 	System.out.println("注文した酒の銘柄:" + brand);
 	System.out.println("注文本数:" + number);   	
-	System.out.println("-------------------------------------------------");
 	}
 }

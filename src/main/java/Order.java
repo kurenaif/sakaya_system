@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /**
  * entity 注文に関するクラス
  * Created by kurenaif on 2017/07/21.
@@ -23,6 +25,11 @@ public class Order {
      */
     public int order(String customerName, String brand, int number ) throws InputException, DataBaseException{
     	warehouse.subst(new Stock(brand, number));
+    	try {
+			warehouse.saveFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     	return voucherList.add(customerName, brand, number);
     }
 }
