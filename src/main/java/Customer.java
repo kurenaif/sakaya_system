@@ -39,7 +39,8 @@ public class Customer {
         		brand = br.readLine();
         		break;
         	} catch(IOException e){
-        		
+        		System.out.println("正しい入力が行われませんでした.");
+        		System.out.println("もう一度入力をお願いします.");
         	}
         }
         
