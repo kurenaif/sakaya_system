@@ -67,10 +67,14 @@ public class Customer {
 	        try{
 	        	selectbuf = br.readLine();
 	        	select = Integer.parseInt(selectbuf);
-	        	if(select < 1 || select > 2) System.out.println("入力が規定外です．1,2のどちらかを入力をしてください．");
+	        	if(select < 1 || select > 2) {
+	        		System.out.println("正しい入力が行われませんでした.");
+	        		System.out.println("もう一度入力をお願いします.");
+	        	}
 	        	else break;
 	        } catch(IOException | NumberFormatException e){
-	        	System.out.println("入力が規定外です．1,2のどちらかを入力をしてください．");
+	        	System.out.println("正しい入力が行われませんでした.");
+        		System.out.println("もう一度入力をお願いします.");
 	        }
         }
         
