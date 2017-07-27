@@ -49,6 +49,9 @@ public class Customer {
 	        try{
 	        	numbuf = br.readLine();
 	        	number = Integer.parseInt(numbuf);
+	        	if(number <= 0){
+	        		throw new IOException("Input Number Error");
+	        	}
 	        	break;
 	        } catch(IOException | NumberFormatException e){
 	        	System.out.println("正しい入力が行われませんでした.");
