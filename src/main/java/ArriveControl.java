@@ -77,13 +77,13 @@ public class ArriveControl {
                 }
                 else if(select==2){//いいえ
                     doArrive();//もう一度入力を促す。
-                    break;
                 }
                 else{//1か2以外
                     System.out.println("------------------------------------------------------------");
                     System.out.println("正しい入力が行われませんでした．");
                     System.out.println("もう一度入力をお願いします．");
                     System.out.println("------------------------------------------------------------");
+                    doArrive();
                 }
             }
             catch (IOException | NumberFormatException e){
@@ -91,6 +91,7 @@ public class ArriveControl {
                 System.out.println("正しい入力が行われませんでした．");
                 System.out.println("もう一度入力をお願いします．");
                 System.out.println("------------------------------------------------------------");
+                doArrive();
             }
         }
     }
@@ -120,6 +121,7 @@ public class ArriveControl {
                 System.out.println("正しい入力が行われませんでした．");
                 System.out.println("もう一度入力をお願いします．");
                 System.out.println("------------------------------------------------------------");
+                doArrive();
             }
         }
 
@@ -128,13 +130,21 @@ public class ArriveControl {
         while(true){
             try {
                 number = Integer.parseInt(br.readLine());
+                if(number < 0){
+                    System.out.println("------------------------------------------------------------");
+                    System.out.println("正しい入力が行われませんでした．");
+                    System.out.println("もう一度入力をお願いします．");
+                    System.out.println("------------------------------------------------------------");
+                    doArrive();
+                }
                 break;
             }
-            catch (IOException e){
+            catch (IOException | NumberFormatException e){
                 System.out.println("------------------------------------------------------------");
                 System.out.println("正しい入力が行われませんでした．");
                 System.out.println("もう一度入力をお願いします．");
                 System.out.println("------------------------------------------------------------");
+                doArrive();
             }
         }
 

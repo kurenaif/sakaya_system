@@ -19,7 +19,7 @@ public class SalesPerson {
         System.out.println("どちらの操作を行いますか？");
         System.out.println("1. 在庫を表示する");
         System.out.println("2. 出荷実績を表示する");
-        System.out.println("数字を入力してください：");
+        System.out.print("数字を入力してください：");
         while(true) {
             try {
                 select = Integer.parseInt(br.readLine());
@@ -33,11 +33,13 @@ public class SalesPerson {
                     System.out.println("正しい入力が行われませんでした．");
                     System.out.println("もう一度入力をお願いします．");
                     System.out.println("-------------------------------------------------");
+                    selection();
                 }
-            } catch (IOException e) {
+            } catch (IOException | NumberFormatException e) {
                 System.out.println("正しい入力が行われませんでした．");
                 System.out.println("もう一度入力をお願いします．");
                 System.out.println("-------------------------------------------------");
+                selection();
             }
         }
     }

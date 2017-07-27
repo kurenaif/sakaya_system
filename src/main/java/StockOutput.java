@@ -26,6 +26,5 @@ public class StockOutput {
         for (int i=0;i < stock.size();i++){
             System.out.println(stock.get(i).getBrand()+"\t"+stock.get(i).getNumber());
         }
-        System.out.println("-------------------------------------------------");
     }
 }
